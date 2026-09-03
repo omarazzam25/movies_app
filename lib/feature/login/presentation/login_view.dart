@@ -68,7 +68,7 @@ class LoginView extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 18,),
-                CustomButton(img: SvgPicture.asset('assets/icons/icon _google.svg'), text: 'Login With Google',),
+                CustomButton( onTap: (){navigatorKey.currentState?.pushNamed(AppRoutesName.profile); }, img: SvgPicture.asset('assets/icons/icon _google.svg'), text: 'Login With Google',),
                 SizedBox(height: 33,),
                 Padding(
                   padding: const EdgeInsetsGeometry.symmetric(horizontal: 150.0),

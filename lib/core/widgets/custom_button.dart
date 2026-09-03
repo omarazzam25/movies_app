@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
   final String text;
   final Color? background;
   final Color? strokeColor;
-  final Color? titleColor;
+  final TextStyle? titleColor;
   final Widget? img;
 
 
@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: AppColor.primary ,
+          color: background ?? AppColor.primary ,
 
         ),
         child: Center(
@@ -40,7 +40,7 @@ class CustomButton extends StatelessWidget {
                 ?img,
                   SizedBox(width: 16,),
 
-                Text(text ,style: TextThem.robotoRegular20DarkGray),
+                Text(text ,style: titleColor ?? TextThem.robotoRegular20DarkGray ),
               ],
             )),
       ),
