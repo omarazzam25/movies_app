@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/routes/app_routes_name.dart';
 import 'package:movies_app/main.dart';
 
+
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -16,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(Duration(seconds: 2),() {
 
-      navigatorKey.currentState?.pushReplacementNamed(AppRoutesName.login);
+      navigatorKey.currentState?.pushReplacementNamed(AppRoutesName.onboarding);
     }, );
   }
 

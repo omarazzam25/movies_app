@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 19.0,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 19.0,vertical: 37),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
