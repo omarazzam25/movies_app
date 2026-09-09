@@ -42,7 +42,7 @@ class LoginView extends StatelessWidget {
                 },
                     child: Text('Forget Password?',style: TextThem.robotoRegular14Yellow,textAlign: TextAlign.end, )),
                 SizedBox(height: 33,),
-                CustomButton(text: 'Login'),
+                CustomButton(text: 'Login',onTap: (){navigatorKey.currentState?.pushReplacementNamed(AppRoutesName.layout); },),
                 SizedBox(height: 22,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

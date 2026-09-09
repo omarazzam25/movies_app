@@ -16,8 +16,8 @@ abstract class AppTheme {
     appBarTheme: AppBarTheme(
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.dark,
-        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
       ),
       surfaceTintColor: Colors.transparent,
       backgroundColor: Colors.transparent,
