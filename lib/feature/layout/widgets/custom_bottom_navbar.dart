@@ -48,12 +48,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   color: isSelected
                       ? Colors.transparent
                       : Colors.transparent,
-                  // border: isSelected
-                  //     ? Border.all(
-                  //   color: Colors.blue,
-                  //   width: 2,
-                  // )
-                  //     : null,
+
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Padding(
