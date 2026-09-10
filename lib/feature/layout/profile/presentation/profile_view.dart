@@ -4,7 +4,6 @@ import 'package:movies_app/core/config/routes/app_routes_name.dart';
 import 'package:movies_app/core/config/them/app_color.dart';
 import 'package:movies_app/core/widgets/custom_button.dart';
 import 'package:movies_app/main.dart';
-
 import '../../../../core/config/them/text_them.dart';
 import '../../../../core/service/snack_bar.dart';
 import '../../../../core/utils/firebase_auth_service.dart';
@@ -163,3 +162,5 @@ class ProfileView extends StatelessWidget {
     );
   }
 }
+
+

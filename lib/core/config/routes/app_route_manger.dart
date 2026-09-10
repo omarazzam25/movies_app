@@ -4,6 +4,7 @@ import 'package:movies_app/feature/layout/layout_view.dart';
 
 import '../../../feature/edit_profile/presentation/edit_profile_view.dart';
 import '../../../feature/forget_password/presentation/forget_password_view.dart';
+import '../../../feature/layout/home/presentation/home_view.dart';
 import '../../../feature/login/presentation/login_view.dart';
 import '../../../feature/onboarding/presentation/onboarding_view.dart';
 import '../../../feature/register/presentation/register_view.dart';
@@ -37,6 +38,9 @@ abstract class AppRouteManger {
 
         case AppRoutesName.layout:
         return MaterialPageRoute(builder: (context) => const LayoutView(),settings: settings);
+
+      case AppRoutesName.home:
+        return MaterialPageRoute(builder: (context) => const HomeView(), settings: settings);
 
 
 

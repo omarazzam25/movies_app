@@ -1,0 +1,149 @@
+import 'dart:ui';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import '../../../../core/api/model/inner_classes/movie.dart';
+import '../../../../core/config/them/app_color.dart';
+import '../../../../core/config/them/screen_size.dart';
+import '../../../../core/config/them/text_them.dart';
+import '../../../../core/utils/app_assets.dart';
+import 'movie_card.dart';
+
+
+class HomeUi extends StatelessWidget {
+  final List<Movie> movies;
+  final int currentIndex;
+  final Function(int) onPageChanged;
+
+  const HomeUi({
+    super.key,
+    required this.movies,
+    required this.currentIndex,
+    required this.onPageChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.network(
+              movies[currentIndex].largeCoverImage ?? "",
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+              child: Container(color: const Color(0xB3000000)),
+            ),
+          ),
+
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: context.height * 0.05),
+                Image.asset(AppAssets.availableNowImage),
+                SizedBox(height: context.height * 0.03),
+
+                CarouselSlider.builder(
+                  itemCount: movies.length,
+                  itemBuilder: (context, index, realIndex) {
+                    return MovieCard(
+                      imageUrl: movies[index].largeCoverImage ?? "",
+                      rating: movies[index].rating,
+                      width: double.infinity,
+                      height: context.height * 0.50,
+                      ratingTextStyle: TextThem.robotoRegular16White,
+                      starSize: 22,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: context.width * 0.01,
+                      ),
+                      badgeTop: context.height * 0.02,
+                      badgeLeft: context.width * 0.03,
+                      badgeColor: const Color(0x66000000),
+                      badgePadding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: context.height * 0.45,
+                    enlargeCenterPage: true,
+                    viewportFraction: 0.7,
+                    onPageChanged: (index, reason) {
+                      onPageChanged(index);
+                    },
+                  ),
+                ),
+
+                SizedBox(height: context.height * 0.02),
+                Image.asset(AppAssets.watchNowImage),
+                SizedBox(height: context.height * 0.02),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: context.width * 0.03,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        movies[currentIndex].genres![0],
+                        style: TextThem.robotoRegular20White,
+                      ),
+                      Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "See More",
+                              style: TextThem.robotoRegular16Yellow,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_outlined,
+                            color: AppColor.primary,
+                            size: 18,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: context.height * 0.1),
+
+                SizedBox(
+                  height: context.height * 0.15,
+                  child: ListView.builder(
+                    padding: EdgeInsets.only(left: context.width * 0.02),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: movies.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.only(right: context.width * 0.03),
+                        width: context.width * 0.25,
+                        child: MovieCard(
+                          imageUrl: movies[index].largeCoverImage ?? "",
+                          rating: movies[index].rating,
+                          width: context.width * 0.25,
+                          height: context.height * 0.15,
+                          ratingTextStyle: TextThem.robotoRegular10White,
+                          starSize: 14,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: context.height * 0.9),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
