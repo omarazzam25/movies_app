@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/feature/layout/layout_view.dart';
 
+import '../../../feature/edit_profile/presentation/edit_profile_view.dart';
 import '../../../feature/forget_password/presentation/forget_password_view.dart';
 import '../../../feature/login/presentation/login_view.dart';
 import '../../../feature/onboarding/presentation/onboarding_view.dart';
-import '../../../feature/profile/presentation/profile_view.dart';
 import '../../../feature/register/presentation/register_view.dart';
 import '../../../feature/splash/splash_view.dart';
 import 'app_routes_name.dart';
@@ -32,8 +32,8 @@ abstract class AppRouteManger {
         case AppRoutesName.forgetPassword:
         return MaterialPageRoute(builder: (context) => const ForgetPasswordView(),settings: settings);
 
-        case AppRoutesName.profile:
-        return MaterialPageRoute(builder: (context) => const ProfileView(),settings: settings);
+        case AppRoutesName.editProfile:
+        return MaterialPageRoute(builder: (context) => const EditProfileView(),settings: settings);
 
         case AppRoutesName.layout:
         return MaterialPageRoute(builder: (context) => const LayoutView(),settings: settings);

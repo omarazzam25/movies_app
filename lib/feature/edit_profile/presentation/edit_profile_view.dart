@@ -6,14 +6,13 @@ import '../../../core/config/them/app_color.dart';
 import '../../../core/config/them/text_them.dart';
 import '../../../core/widgets/custom_text_form_field.dart';
 
-class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+class EditProfileView extends StatelessWidget {
+  const EditProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_outlined,color: AppColor.primary,),
         title: Text('Pick Avatar',style: TextThem.robotoRegular14Yellow,),
       ),
       body: Padding(

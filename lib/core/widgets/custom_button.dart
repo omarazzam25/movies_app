@@ -5,7 +5,7 @@ import '../config/them/app_color.dart';
 
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key,  this.onTap, required this.text, this.background, this.strokeColor, this.titleColor, this.img, });
+  const CustomButton({super.key,  this.onTap, required this.text, this.background, this.strokeColor, this.titleColor, this.img, this.rightIcon, });
 
   final void Function()? onTap;
   final String text;
@@ -13,6 +13,8 @@ class CustomButton extends StatelessWidget {
   final Color? strokeColor;
   final TextStyle? titleColor;
   final Widget? img;
+  final Widget? rightIcon;
+
 
 
   @override
@@ -39,8 +41,9 @@ class CustomButton extends StatelessWidget {
               children: [
                 ?img,
                   SizedBox(width: 16,),
-
                 Text(text ,style: titleColor ?? TextThem.robotoRegular20DarkGray ),
+                ?rightIcon
+
               ],
             )),
       ),

@@ -26,15 +26,17 @@ class _LayoutViewState extends State<LayoutView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: currentIndex,
-          onTap: (index){
-            currentIndex = index;
-            setState(() {
+      bottomNavigationBar: SafeArea(
+        child: CustomBottomNavBar(
+            currentIndex: currentIndex,
+            onTap: (index){
+              currentIndex = index;
+              setState(() {
 
-            });
-          }
-          )
+              });
+            }
+            ),
+      )
 
     );
   }
