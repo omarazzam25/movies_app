@@ -120,10 +120,15 @@ static Future<bool> signOut() async {
     await FirebaseAuth.instance.signOut();
     return true;
   } catch (e) {
-    SnackBarHelper.showErrorSnackBar('Failed to sign out');
+    SnackBarHelper.showErrorSnackBar(
+      'Something went wrong',
+    );
     return false;
   }
 }
+
+
+
 
 
 

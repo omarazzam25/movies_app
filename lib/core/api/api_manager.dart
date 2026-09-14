@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-
-
 import 'model/all_movies_response.dart';
 import 'model/movie_by_genre_response.dart';
 
