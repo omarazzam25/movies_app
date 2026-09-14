@@ -277,6 +277,8 @@ class ProfileView extends StatelessWidget {
                                   );
                                 }
                               },
+
+                              titleColor: TextThem.robotoRegular20White ,
                               text: 'Exit',
                               rightIcon: const Icon(
                                 Icons.login_outlined,

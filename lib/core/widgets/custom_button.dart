@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final them = Theme.of(context);
+
     return Bounceable(
       onTap: (){
 
@@ -42,6 +42,7 @@ class CustomButton extends StatelessWidget {
                 ?img,
                   SizedBox(width: 16,),
                 Text(text ,style: titleColor ?? TextThem.robotoRegular20DarkGray ),
+                SizedBox(width: 4,),
                 ?rightIcon
 
               ],
