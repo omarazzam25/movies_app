@@ -6,11 +6,7 @@ abstract class AppColor {
   static const Color secondary = Color(0xFF282A28);
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color blackColor = Color(0xff121312);
-
-
-
   static const Color lightGrayColor = Color(0xffADADAD);
-
   static const Color greenColor = Color(0xff57AA53);
   static const Color redColor = Color(0xffE82626);
   static const Color blackGradiantColor = Color(0xff2A2C30);

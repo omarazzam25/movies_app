@@ -2,6 +2,8 @@ library;
 
 import 'package:movies_app/core/api/model/inner_classes/torrents.dart';
 
+ import 'cast.dart';
+
 class Movie {
   static const String watchListCollectionName = 'watch_list';
   static const String historyCollectionName = 'history';
@@ -75,6 +77,13 @@ class Movie {
         torrents?.add(Torrents.fromJson(v));
       });
     }
+
+    if (json['cast'] != null) {
+      cast = [];
+      json['cast'].forEach((v) {
+        cast?.add(Cast.fromJson(v));
+      });
+    }
     dateUploaded = json['date_uploaded'];
 
     dateUploadedUnix = (json['date_uploaded_unix'] as num?)?.toInt();
@@ -110,6 +119,7 @@ class Movie {
   String? largeScreenshotImage3;
 
   List<Torrents>? torrents;
+  List<Cast>? cast;
   String? dateUploaded;
   int? dateUploadedUnix;
 
@@ -147,6 +157,10 @@ class Movie {
     if (torrents != null) {
       map['torrents'] = torrents?.map((v) => v.toJson()).toList();
     }
+    if (cast != null) {
+      map['cast'] = cast?.map((v) => v.toJson()).toList();
+    }
+
     map['date_uploaded'] = dateUploaded;
     map['date_uploaded_unix'] = dateUploadedUnix;
     return map;
