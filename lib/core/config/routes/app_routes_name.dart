@@ -6,6 +6,6 @@ abstract class AppRoutesName {
   static const String forgetPassword = '/forget_password';
   static const String editProfile = '/profile';
   static const String layout = '/layout';
-  static const String home = '/home';
+  static const String movieDetails = '/movie_details';
 
 }

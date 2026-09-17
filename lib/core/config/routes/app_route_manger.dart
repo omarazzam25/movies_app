@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:movies_app/feature/layout/layout_view.dart';
+import 'package:movies_app/feature/layout/movie_details/presentation/movie_details_view.dart';
 
 import '../../../feature/edit_profile/presentation/edit_profile_view.dart';
 import '../../../feature/forget_password/presentation/forget_password_view.dart';
@@ -9,6 +10,7 @@ import '../../../feature/login/presentation/login_view.dart';
 import '../../../feature/onboarding/presentation/onboarding_view.dart';
 import '../../../feature/register/presentation/register_view.dart';
 import '../../../feature/splash/splash_view.dart';
+import '../../api/model/inner_classes/movie.dart';
 import 'app_routes_name.dart';
 
 abstract class AppRouteManger {
@@ -39,8 +41,10 @@ abstract class AppRouteManger {
         case AppRoutesName.layout:
         return MaterialPageRoute(builder: (context) => const LayoutView(),settings: settings);
 
-      case AppRoutesName.home:
-        return MaterialPageRoute(builder: (context) => const HomeView(), settings: settings);
+        case AppRoutesName.movieDetails:
+          final movie = settings.arguments as Movie;
+
+        return MaterialPageRoute(builder: (context) => MovieDetailsView(movie: movie,),settings: settings);
 
 
 

@@ -1,6 +1,9 @@
 import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/api/model/inner_classes/movie.dart';
+import 'package:movies_app/core/config/routes/app_routes_name.dart';
+import 'package:movies_app/main.dart';
 import '../../../../core/api/api_manager.dart';
 import '../../../../core/api/model/all_movies_response.dart';
 import '../../../../core/config/them/app_color.dart';
@@ -10,7 +13,9 @@ import '../../../../core/utils/app_assets.dart';
 import '../widget/genre_movies_widget.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  const HomeView({super.key,});
+
+
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -20,6 +25,7 @@ class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
 
   late Future<AllMoviesResponse> moviesFuture;
+
 
   @override
   void initState() {
@@ -86,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
                       itemBuilder: (context, index, realIndex) {
                         return GestureDetector(
                           onTap: () {
-                            //  Navigator
+                             navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index] );
                           },
                           child: Stack(
                             children: [
