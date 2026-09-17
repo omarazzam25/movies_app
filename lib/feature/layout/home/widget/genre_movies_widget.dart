@@ -2,9 +2,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../../../core/api/api_manager.dart';
 import '../../../../core/api/model/movie_by_genre_response.dart';
+import '../../../../core/config/routes/app_routes_name.dart';
 import '../../../../core/config/them/app_color.dart';
 import '../../../../core/config/them/screen_size.dart';
 import '../../../../core/config/them/text_them.dart';
+import '../../../../main.dart';
 
 
 class GenreMoviesWidget extends StatefulWidget {
@@ -120,8 +122,8 @@ class _GenreMoviesWidgetState extends State<GenreMoviesWidget> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                    //  Navigator
-                    },
+                      navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index] );
+                      },
                     child: Container(
                       margin: EdgeInsets.only(right: context.width * 0.03),
                       width: context.width * 0.25,

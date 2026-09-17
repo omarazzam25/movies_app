@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/api/model/inner_classes/movie.dart';
 import 'package:movies_app/core/config/routes/app_routes_name.dart';
 import 'package:movies_app/main.dart';
 import '../../../../core/api/api_manager.dart';
