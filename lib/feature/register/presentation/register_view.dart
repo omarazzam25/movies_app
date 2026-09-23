@@ -11,6 +11,7 @@ import '../../../core/config/them/text_them.dart';
 import '../../../core/service/snack_bar.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text_form_field.dart';
+import '../../../core/widgets/language_custom_widget.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -243,27 +244,7 @@ class _RegisterViewState extends State<RegisterView> {
 
                       SizedBox(height: 18,),
 
-                      Padding(
-                        padding: const EdgeInsetsGeometry.symmetric(horizontal: 150.0),
-                        child: Container(
-                          height: 38,
-                          width: 90,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: AppColor.primary,width: 1)
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children:[
-                              SvgPicture.asset('assets/icons/usa_icon.svg'),
-                              SizedBox(width: 10,),
-                              SvgPicture.asset('assets/icons/egy_icon.svg')
-
-
-                            ],
-                          ),
-                        ),
-                      ),
+                      LanguageCustomWidget()
 
                     ],
                   ),

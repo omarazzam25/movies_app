@@ -11,6 +11,8 @@ import '../../../core/config/them/text_them.dart';
 import '../../../core/service/snack_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/widgets/language_custom_widget.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -184,27 +186,8 @@ class _LoginViewState extends State<LoginView> {
                           text: 'Login With Google',
                         ),
                         SizedBox(height: 33),
-                        Padding(
-                          padding: const EdgeInsetsGeometry.symmetric(
-                            horizontal: 150.0,
-                          ),
-                          child: Container(
-                            height: 38,
-                            width: 90,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: AppColor.primary, width: 1),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset('assets/icons/usa_icon.svg'),
-                                SizedBox(width: 10),
-                                SvgPicture.asset('assets/icons/egy_icon.svg'),
-                              ],
-                            ),
-                          ),
-                        ),
+                        LanguageCustomWidget(),
+
                       ],
                     ),
                   ),

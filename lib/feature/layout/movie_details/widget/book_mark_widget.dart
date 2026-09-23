@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class BookMarkWidget extends StatelessWidget {
   final Movie movie;
 
+
   const BookMarkWidget({super.key, required this.movie});
 
   @override

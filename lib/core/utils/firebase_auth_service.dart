@@ -90,7 +90,7 @@ static Future<UserCredential?> signInWithGoogle() async {
    return await FirebaseAuth.instance.signInWithCredential(credential);
  } catch(e){
 
-   SnackBarHelper.showErrorSnackBar('Something Went Wrong  $e' );
+   SnackBarHelper.showErrorSnackBar('Something Went Wrong ' );
    return null;
 
  }

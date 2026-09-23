@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/feature/layout/browse/presentation/browse_view.dart';
 import 'package:movies_app/feature/layout/home/presentation/home_view.dart';
 import 'package:movies_app/feature/layout/profile/presentation/profile_view.dart';
 import 'package:movies_app/feature/layout/search/presentation/search_view.dart';
+import 'package:movies_app/feature/layout/search/repo/movie_repository.dart';
+import 'package:movies_app/feature/layout/search/search_cubit/search_cubit.dart';
 import 'package:movies_app/feature/layout/widgets/custom_bottom_navbar.dart';
 
 class LayoutView extends StatefulWidget {
@@ -17,7 +21,9 @@ class _LayoutViewState extends State<LayoutView> {
 
   final List<Widget> screens = [
     const HomeView(),
-    const SearchView(),
+    BlocProvider(
+      create:(context) => SearchCubit(MovieRepository(Dio())),
+        child: const SearchView()),
     const BrowseView(),
     const ProfileView(),
   ];

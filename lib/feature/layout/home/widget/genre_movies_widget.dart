@@ -122,7 +122,7 @@ class _GenreMoviesWidgetState extends State<GenreMoviesWidget> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index] );
+                      navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index].id );
                       },
                     child: Container(
                       margin: EdgeInsets.only(right: context.width * 0.03),

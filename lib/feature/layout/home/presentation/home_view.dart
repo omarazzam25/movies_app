@@ -91,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
                       itemBuilder: (context, index, realIndex) {
                         return GestureDetector(
                           onTap: () {
-                             navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index] );
+                             navigatorKey.currentState?.pushNamed(AppRoutesName.movieDetails,arguments: moviesList[index].id );
                           },
                           child: Stack(
                             children: [

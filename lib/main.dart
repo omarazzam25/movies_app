@@ -4,12 +4,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:movies_app/core/config/routes/app_route_manger.dart';
 import 'package:movies_app/core/config/routes/app_routes_name.dart';
 import 'package:movies_app/core/config/them/app_them.dart';
-import 'package:movies_app/feature/layout/layout_view.dart';
+
 import 'core/service/loading_indicator.dart';
 import 'core/service/snack_bar.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'feature/layout/home/presentation/home_view.dart';
+
 import 'firebase_options.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState> ();
