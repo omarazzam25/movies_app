@@ -9,6 +9,8 @@ import 'package:movies_app/feature/layout/search/repo/movie_repository.dart';
 import 'package:movies_app/feature/layout/search/search_cubit/search_cubit.dart';
 import 'package:movies_app/feature/layout/widgets/custom_bottom_navbar.dart';
 
+import 'browse/cubit/browse_view_model.dart';
+
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
 
@@ -22,9 +24,10 @@ class _LayoutViewState extends State<LayoutView> {
   final List<Widget> screens = [
     const HomeView(),
     BlocProvider(
-      create:(context) => SearchCubit(MovieRepository(Dio())),
-        child: const SearchView()),
-    const BrowseView(),
+      create: (context) => SearchCubit(MovieRepository(Dio())),
+      child: const SearchView(),
+    ),
+    BlocProvider(create: (context) => BrowseCubit(), child: const BrowseView()),
     const ProfileView(),
   ];
 
@@ -33,15 +36,12 @@ class _LayoutViewState extends State<LayoutView> {
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: currentIndex,
-          onTap: (index){
-            currentIndex = index;
-            setState(() {
-
-            });
-          }
-          )
-
+        currentIndex: currentIndex,
+        onTap: (index) {
+          currentIndex = index;
+          setState(() {});
+        },
+      ),
     );
   }
 }
