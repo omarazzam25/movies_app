@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:movies_app/core/widgets/custom_button.dart';
-
 import '../../../core/api/model/my_user.dart';
 import '../../../core/config/routes/app_routes_name.dart';
 import '../../../core/config/them/app_color.dart';
