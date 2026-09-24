@@ -5,6 +5,12 @@ class HistoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: Image.asset(
+        'assets/images/empty.png',
+        width: 124,
+        height: 124,
+      ),
+    );
   }
 }

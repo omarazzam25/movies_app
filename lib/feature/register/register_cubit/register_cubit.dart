@@ -10,15 +10,21 @@ class RegisterCubit extends Cubit<RegisterState> {
 
 
   Future<void> createAccount(
+      String name,
       String email,
       String password,
+
       ) async {
     emit(RegisterLoadingState());
 
     try {
       final success = await FirebaseAuthService.createAccount(
+        name,
         email,
-        password,
+        password
+
+
+
       );
 
       if (success) {
