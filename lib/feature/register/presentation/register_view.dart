@@ -203,7 +203,15 @@ class _RegisterViewState extends State<RegisterView> {
                         padding: const EdgeInsets.all(12.0),
                         child: SvgPicture.asset('assets/icons/password.svg'),
                       ),
-                        suffixIcon: Icon(Icons.visibility_off,color: AppColor.whiteColor,),
+                        suffixIcon: IconButton(
+                          onPressed: togglePasswordVisibility,
+                          icon: Icon(
+                            isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
                       ),
                       SizedBox(height: 22,),
                       CustomTextFormField(
@@ -226,7 +234,7 @@ class _RegisterViewState extends State<RegisterView> {
 
                         onTap: (){
                           if (_formKey.currentState!.validate()) {
-                            context.read<RegisterCubit>().createAccount(emailController.text, passwordController.text);
+                            context.read<RegisterCubit>().createAccount(nameController.text,emailController.text, passwordController.text);
                           }
                           },
                       ),

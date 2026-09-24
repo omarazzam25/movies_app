@@ -78,4 +78,16 @@ class FirebaseUtils {
   }) {
     return getHistoryCollection(uId).doc(movie.id.toString()).set(movie);
   }
+
+  static Stream<QuerySnapshot<Movie>> getWatchListMovies(
+      String uId,
+      ) {
+    return getWatchListCollection(uId).snapshots();
+  }
+
+  static Stream<QuerySnapshot<Movie>> getHistoryMovies(
+      String uId,
+      ) {
+    return getHistoryCollection(uId).snapshots();
+  }
 }

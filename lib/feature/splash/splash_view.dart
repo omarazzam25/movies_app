@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(Duration(seconds: 2),() {
 
-      navigatorKey.currentState?.pushReplacementNamed(AppRoutesName.layout);
+      navigatorKey.currentState?.pushReplacementNamed(AppRoutesName.login);
     }, );
   }
 

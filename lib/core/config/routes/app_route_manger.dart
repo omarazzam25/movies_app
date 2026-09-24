@@ -11,6 +11,7 @@ import '../../../feature/onboarding/presentation/onboarding_view.dart';
 import '../../../feature/register/presentation/register_view.dart';
 import '../../../feature/splash/splash_view.dart';
 
+import '../../api/model/my_user.dart';
 import 'app_routes_name.dart';
 
 abstract class AppRouteManger {
@@ -36,7 +37,8 @@ abstract class AppRouteManger {
         return MaterialPageRoute(builder: (context) => const ForgetPasswordView(),settings: settings);
 
         case AppRoutesName.editProfile:
-        return MaterialPageRoute(builder: (context) => const EditProfileView(),settings: settings);
+          final user = settings.arguments as MyUser;
+        return MaterialPageRoute(builder: (context) => EditProfileView(user: user,),settings: settings);
 
         case AppRoutesName.layout:
         return MaterialPageRoute(builder: (context) => const LayoutView(),settings: settings);
