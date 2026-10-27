@@ -104,9 +104,6 @@ Make sure you have the following installed:
 - A Firebase project
 - A valid movie API key
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/omarazzam25/movies_app.git](https://github.com/omarazzam25/movies_app.git)
 
 ## 👥 Contributors
 
@@ -126,3 +123,8 @@ Flutter Developer
 ---
 
 **Built collaboratively with Flutter ❤️**
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/omarazzam25/movies_app.git](https://github.com/omarazzam25/movies_app.git)
+
