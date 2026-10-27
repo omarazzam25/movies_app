@@ -24,11 +24,7 @@ class ProfileView extends StatelessWidget {
     final userId = FirebaseAuth.instance.currentUser?.uid;
 
     if (userId == null) {
-      return const Scaffold(
-        body: Center(
-          child: Text('Please login first'),
-        ),
-      );
+      return const Scaffold(body: Center(child: Text('Please login first')));
     }
 
     return DefaultTabController(
@@ -40,17 +36,13 @@ class ProfileView extends StatelessWidget {
               FutureBuilder<MyUser?>(
                 future: FirebaseUtils.readUserFromFireStore(userId),
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState ==
-                      ConnectionState.waiting) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
-                      child: CircularProgressIndicator(
-                        color: AppColor.primary,
-                      ),
+                      child: CircularProgressIndicator(color: AppColor.primary),
                     );
                   }
 
                   final user = snapshot.data;
-
 
                   return Container(
                     width: double.infinity,
@@ -63,31 +55,25 @@ class ProfileView extends StatelessWidget {
                       builder: (context, constraints) {
                         final width = constraints.maxWidth;
 
-                        final avatarRadius =
-                        (width * 0.14).clamp(42.0, 55.0);
+                        final avatarRadius = (width * 0.14).clamp(42.0, 55.0);
 
-                        final numberSize =
-                        (width * 0.09).clamp(28.0, 36.0);
+                        final numberSize = (width * 0.09).clamp(28.0, 36.0);
 
-                        final titleSize =
-                        (width * 0.055).clamp(18.0, 24.0);
+                        final titleSize = (width * 0.055).clamp(18.0, 24.0);
 
                         return Column(
                           children: [
                             Row(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-
                                 Expanded(
                                   flex: 2,
                                   child: Column(
                                     children: [
                                       CircleAvatar(
                                         radius: avatarRadius,
-                                        backgroundImage:
-                                        const AssetImage(
-                                           'assets/images/gamer_profile .png',
+                                        backgroundImage: const AssetImage(
+                                          'assets/images/gamer_profile .png',
                                         ),
                                       ),
 
@@ -98,20 +84,18 @@ class ProfileView extends StatelessWidget {
                                         child: Text(
                                           user?.name ?? 'User',
                                           maxLines: 1,
-                                          style: TextThem
-                                              .robotoBold20White,
+                                          style: TextThem.robotoBold20White,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
 
-
                                 Expanded(
-                                  child: StreamBuilder<
-                                      QuerySnapshot<Movie>>(
-                                    stream: FirebaseUtils
-                                        .getWatchListMovies(userId),
+                                  child: StreamBuilder<QuerySnapshot<Movie>>(
+                                    stream: FirebaseUtils.getWatchListMovies(
+                                      userId,
+                                    ),
                                     builder: (context, snapshot) {
                                       final count =
                                           snapshot.data?.docs.length ?? 0;
@@ -120,22 +104,18 @@ class ProfileView extends StatelessWidget {
                                         children: [
                                           Text(
                                             '$count',
-                                            style: TextThem
-                                                .robotoBold36White
-                                                .copyWith(
-                                              fontSize: numberSize,
-                                            ),
+                                            style: TextThem.robotoBold36White
+                                                .copyWith(fontSize: numberSize),
                                           ),
                                           const SizedBox(height: 8),
                                           FittedBox(
                                             fit: BoxFit.scaleDown,
                                             child: Text(
                                               'Wish List',
-                                              style: TextThem
-                                                  .robotoBold24White
+                                              style: TextThem.robotoBold24White
                                                   .copyWith(
-                                                fontSize: titleSize,
-                                              ),
+                                                    fontSize: titleSize,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -144,12 +124,11 @@ class ProfileView extends StatelessWidget {
                                   ),
                                 ),
 
-
                                 Expanded(
-                                  child: StreamBuilder<
-                                      QuerySnapshot<Movie>>(
-                                    stream: FirebaseUtils
-                                        .getHistoryMovies(userId),
+                                  child: StreamBuilder<QuerySnapshot<Movie>>(
+                                    stream: FirebaseUtils.getHistoryMovies(
+                                      userId,
+                                    ),
                                     builder: (context, snapshot) {
                                       final count =
                                           snapshot.data?.docs.length ?? 0;
@@ -158,22 +137,18 @@ class ProfileView extends StatelessWidget {
                                         children: [
                                           Text(
                                             '$count',
-                                            style: TextThem
-                                                .robotoBold36White
-                                                .copyWith(
-                                              fontSize: numberSize,
-                                            ),
+                                            style: TextThem.robotoBold36White
+                                                .copyWith(fontSize: numberSize),
                                           ),
                                           const SizedBox(height: 8),
                                           FittedBox(
                                             fit: BoxFit.scaleDown,
                                             child: Text(
                                               'History',
-                                              style: TextThem
-                                                  .robotoBold24White
+                                              style: TextThem.robotoBold24White
                                                   .copyWith(
-                                                fontSize: titleSize,
-                                              ),
+                                                    fontSize: titleSize,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -186,7 +161,6 @@ class ProfileView extends StatelessWidget {
 
                             const SizedBox(height: 20),
 
-
                             Row(
                               children: [
                                 Expanded(
@@ -194,8 +168,12 @@ class ProfileView extends StatelessWidget {
                                   child: CustomButton(
                                     text: 'Edit Profile',
                                     onTap: () {
+                                      print('PROFILE USER NAME: ${user?.name}');
+                                      print('PROFILE USER PHONE: ${user?.phone}');
+                                      print('PROFILE USER ID: ${user?.id}');
                                       navigatorKey.currentState?.pushNamed(
-                                        AppRoutesName.editProfile,arguments: user
+                                        AppRoutesName.editProfile,
+                                        arguments: user,
                                       );
                                     },
                                   ),
@@ -206,8 +184,7 @@ class ProfileView extends StatelessWidget {
                                 Expanded(
                                   child: CustomButton(
                                     text: 'Exit',
-                                    titleColor:
-                                    TextThem.robotoRegular20White,
+                                    titleColor: TextThem.robotoRegular20White,
                                     background: AppColor.redColor,
                                     rightIcon: const Icon(
                                       Icons.login_outlined,
@@ -215,20 +192,18 @@ class ProfileView extends StatelessWidget {
                                     ),
                                     onTap: () async {
                                       final success =
-                                      await FirebaseAuthService
-                                          .signOut();
+                                          await FirebaseAuthService.signOut();
 
                                       if (success) {
-                                        SnackBarHelper
-                                            .showSuccessSnackBar(
+                                        SnackBarHelper.showSuccessSnackBar(
                                           'Logout Success',
                                         );
 
                                         navigatorKey.currentState
                                             ?.pushNamedAndRemoveUntil(
-                                          AppRoutesName.login,
+                                              AppRoutesName.login,
                                               (route) => false,
-                                        );
+                                            );
                                       }
                                     },
                                   ),
@@ -241,13 +216,10 @@ class ProfileView extends StatelessWidget {
                             TabBar(
                               dividerHeight: 0,
                               labelColor: AppColor.primary,
-                              unselectedLabelColor:
-                              AppColor.whiteColor,
+                              unselectedLabelColor: AppColor.whiteColor,
                               indicatorColor: AppColor.primary,
-                              indicatorSize:
-                              TabBarIndicatorSize.tab,
-                              overlayColor:
-                              WidgetStateProperty.all(
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              overlayColor: WidgetStateProperty.all(
                                 Colors.transparent,
                               ),
                               tabs: [
@@ -278,12 +250,7 @@ class ProfileView extends StatelessWidget {
               ),
 
               const Expanded(
-                child: TabBarView(
-                  children: [
-                    WatchListView(),
-                    HistoryView(),
-                  ],
-                ),
+                child: TabBarView(children: [WatchListView(), HistoryView()]),
               ),
             ],
           ),

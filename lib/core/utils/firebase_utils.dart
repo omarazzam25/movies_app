@@ -7,10 +7,10 @@ class FirebaseUtils {
     return FirebaseFirestore.instance
         .collection(MyUser.collectionName)
         .withConverter<MyUser>(
-          fromFirestore: (snapshot, options) =>
-              MyUser.fromFireStore(snapshot.data()!),
-          toFirestore: (user, options) => user.toFireStore(),
-        );
+      fromFirestore: (snapshot, options) =>
+          MyUser.fromFireStore(snapshot.data()!),
+      toFirestore: (user, options) => user.toFireStore(),
+    );
   }
 
   static Future<void> addUserToFireStore(MyUser myUser) {
@@ -36,9 +36,9 @@ class FirebaseUtils {
         .doc(uId)
         .collection(Movie.watchListCollectionName)
         .withConverter<Movie>(
-          fromFirestore: (snapshot, options) => Movie.fromJson(snapshot.data()),
-          toFirestore: (movie, options) => movie.toJson(),
-        );
+      fromFirestore: (snapshot, options) => Movie.fromJson(snapshot.data()),
+      toFirestore: (movie, options) => movie.toJson(),
+    );
   }
 
   static Future<void> addMovieToWatchList({
@@ -67,9 +67,9 @@ class FirebaseUtils {
         .doc(uId)
         .collection(Movie.historyCollectionName)
         .withConverter<Movie>(
-          fromFirestore: (snapshot, options) => Movie.fromJson(snapshot.data()),
-          toFirestore: (movie, options) => movie.toJson(),
-        );
+      fromFirestore: (snapshot, options) => Movie.fromJson(snapshot.data()),
+      toFirestore: (movie, options) => movie.toJson(),
+    );
   }
 
   static Future<void> addMovieToHistory({

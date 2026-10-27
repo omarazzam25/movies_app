@@ -9,6 +9,7 @@ import 'firebase_utils.dart';
 
 class FirebaseAuthService {
   static Future<bool> createAccount(
+      String phone,
       String name,
       String email,
       String password,
@@ -31,7 +32,7 @@ class FirebaseAuthService {
         id: firebaseUser.uid,
         name: name.trim(),
         email: email.trim(),
-        phone: '',
+        phone: phone.trim(),
         avatarIndex: 0,
         provider: AuthProviders.emailPassword,
       );

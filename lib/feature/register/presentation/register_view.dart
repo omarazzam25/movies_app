@@ -234,7 +234,8 @@ class _RegisterViewState extends State<RegisterView> {
 
                         onTap: (){
                           if (_formKey.currentState!.validate()) {
-                            context.read<RegisterCubit>().createAccount(nameController.text,emailController.text, passwordController.text);
+                            context.read<RegisterCubit>().createAccount(
+                                phoneNumberController.text,nameController.text,emailController.text, passwordController.text);
                           }
                           },
                       ),

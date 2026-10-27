@@ -11,10 +11,7 @@ import '../../../core/widgets/custom_text_form_field.dart';
 import '../../../main.dart';
 
 class EditProfileView extends StatefulWidget {
-  const EditProfileView({
-    super.key,
-    required this.user,
-  });
+  const EditProfileView({super.key, required this.user});
 
   final MyUser user;
 
@@ -30,13 +27,12 @@ class _EditProfileViewState extends State<EditProfileView> {
   void initState() {
     super.initState();
 
-    _nameController = TextEditingController(
-      text: widget.user.name,
-    );
+    print('USER NAME: ${widget.user.name}');
+    print('USER PHONE: ${widget.user.phone}');
 
-    _phoneController = TextEditingController(
-      text: widget.user.phone,
-    );
+    _nameController = TextEditingController(text: widget.user.name);
+
+    _phoneController = TextEditingController(text: widget.user.phone);
   }
 
   @override
@@ -51,24 +47,18 @@ class _EditProfileViewState extends State<EditProfileView> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
-    final horizontalPadding =
-    (size.width * 0.04).clamp(16.0, 28.0);
+    final horizontalPadding = (size.width * 0.04).clamp(16.0, 28.0);
 
-    final avatarRadius =
-    (size.width * 0.14).clamp(50.0, 65.0);
+    final avatarRadius = (size.width * 0.14).clamp(50.0, 65.0);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Edit Profile',
-          style: TextThem.robotoRegular14Yellow,
-        ),
+        title: Text('Edit Profile', style: TextThem.robotoRegular14Yellow),
       ),
 
       body: SafeArea(
         child: Column(
           children: [
-
             Expanded(
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
@@ -78,7 +68,6 @@ class _EditProfileViewState extends State<EditProfileView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Center(
                       child: CircleAvatar(
                         radius: avatarRadius,
@@ -90,34 +79,27 @@ class _EditProfileViewState extends State<EditProfileView> {
 
                     const SizedBox(height: 35),
 
-
                     CustomTextFormField(
                       controller: _nameController,
                       hint: 'Name',
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(12),
-                        child: SvgPicture.asset(
-                          'assets/icons/user_icon.svg',
-                        ),
+                        child: SvgPicture.asset('assets/icons/user_icon.svg'),
                       ),
                     ),
 
                     const SizedBox(height: 22),
-
 
                     CustomTextFormField(
                       controller: _phoneController,
                       hint: 'Phone',
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(12),
-                        child: SvgPicture.asset(
-                          'assets/icons/phone.svg',
-                        ),
+                        child: SvgPicture.asset('assets/icons/phone.svg'),
                       ),
                     ),
 
                     const SizedBox(height: 22),
-
 
                     Text(
                       'Reset Password',
@@ -128,7 +110,6 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
             ),
 
-
             Padding(
               padding: EdgeInsets.only(
                 left: horizontalPadding,
@@ -138,11 +119,9 @@ class _EditProfileViewState extends State<EditProfileView> {
               ),
               child: Column(
                 children: [
-
                   CustomButton(
                     onTap: () async {
-                      final success =
-                      await FirebaseAuthService.deleteAccount();
+                      final success = await FirebaseAuthService.deleteAccount();
 
                       if (!mounted) return;
 
@@ -151,10 +130,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                           'Account deleted successfully',
                         );
 
-                        navigatorKey.currentState
-                            ?.pushNamedAndRemoveUntil(
+                        navigatorKey.currentState?.pushNamedAndRemoveUntil(
                           AppRoutesName.login,
-                              (route) => false,
+                          (route) => false,
                         );
                       } else {
                         SnackBarHelper.showErrorSnackBar(
@@ -167,13 +145,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                     titleColor: TextThem.robotoRegular20White,
                   ),
 
-
-
-
                   CustomButton(
                     onTap: () async {
-                      final success =
-                      await FirebaseAuthService.updateUser(
+                      final success = await FirebaseAuthService.updateUser(
                         name: _nameController.text,
                         phone: _phoneController.text,
                       );
@@ -185,8 +159,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                           'Data updated successfully',
                         );
 
-                        navigatorKey.currentState
-                            ?.pushReplacementNamed(
+                        navigatorKey.currentState?.pushReplacementNamed(
                           AppRoutesName.layout,
                         );
                       } else {
