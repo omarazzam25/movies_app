@@ -107,3 +107,22 @@ Make sure you have the following installed:
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/omarazzam25/movies_app.git](https://github.com/omarazzam25/movies_app.git)
+
+## 👥 Contributors
+
+This project was developed collaboratively by:
+
+### 1. Omar Azzam
+Flutter Developer
+
+- GitHub: [@omarazzam25](https://github.com/omarazzam25)
+- LinkedIn: [Omar Azzam](https://www.linkedin.com/in/omar-azzam-1903ab220/)
+
+### 2. Abdullah Nassar
+Flutter Developer
+
+- GitHub: [@abdullahnassar2024-pixel](https://github.com/abdullahnassar2024-pixel)
+
+---
+
+**Built collaboratively with Flutter ❤️**
